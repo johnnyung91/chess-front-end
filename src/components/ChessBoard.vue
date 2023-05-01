@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { ref, defineEmits } from "vue";
+import { ref, defineEmits, onMounted, onUnmounted } from "vue";
 const columns = ["A", "B", "C", "D", "E", "F", "G", "H"];
 const rows = [8, 7, 6, 5, 4, 3, 2, 1];
 
@@ -34,14 +34,14 @@ const handleCellClick = (row, col) => {
   selectedCell.value = `${col}${row}`;
   emit("cell-click", selectedCell.value);
 };
+
 </script>
 
 <style scoped>
 .chessboard {
   display: flex;
-  flex-direction: column;
-  width: 320px;
-  height: 320px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .row {
@@ -51,8 +51,9 @@ const handleCellClick = (row, col) => {
 }
 
 .cell {
-  width: 40px;
-  height: 40px;
+  flex: 1 0 12.5%;
+  height: 0;
+  padding-bottom: 12.5%;
   border: 1px solid black;
 }
 

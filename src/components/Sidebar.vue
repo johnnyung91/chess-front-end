@@ -22,19 +22,7 @@ const props = defineProps({
 
 <style scoped>
 .sidebar {
-  width: 200px;
   padding: 16px;
-  background-color: #f5f5f5;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-}
-
-.sidebar--mobile {
-  position: relative;
-  width: 100%;
-  margin-top: 16px;
 }
 
 ul {

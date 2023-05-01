@@ -3,7 +3,9 @@
     <div class="chessboard-container">
       <ChessBoard @cell-click="addSelectedCell" />
     </div>
-    <Sidebar :selectedCells="selectedCells" />
+    <div class="sidebar-container">
+      <Sidebar :selectedCells="selectedCells" />
+    </div>
   </div>
 </template>
 
@@ -29,6 +31,23 @@ const addSelectedCell = (cell) => {
 
 .chessboard-container {
   position: relative;
-  margin-right: 16px;
+  width: 60%;
+}
+.sidebar-container {
+  position: relative;
+  width: 40%;
+}
+
+@media only screen and (max-width: 600px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .chessboard-container {
+    width: 100%;
+  }
+  .sidebar-container {
+    width: 100%;
+  }
 }
 </style>
