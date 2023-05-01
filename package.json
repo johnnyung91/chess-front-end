@@ -1,6 +1,22 @@
 {
-  "name": "chess-frontend-tests",
+  "name": "chess-front-end",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "vite": "^4.1.4"
+  },
   "description": "FrontEnd Programming Challenge for Chess.com",
-  "license": "MIT",
-  "version": "1.0.0"
+  "main": "index.js",
+  "repository": "https://github.com/johnnyung91/chess-front-end.git",
+  "author": "“johnnyung91” <“johnnyung91@gmail.com”>",
+  "license": "MIT"
 }
