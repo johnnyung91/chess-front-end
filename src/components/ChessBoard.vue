@@ -1,18 +1,22 @@
 <template>
   <div class="chessboard">
-    <div v-for="row in 8" :key="row" class="row">
+    <div v-for="(row, rowIndex) in rows" :key="row" class="row">
       <div
-        v-for="col in 8"
-        :key="col"
-        :class="getCellClass(row, col)"
-        @click="handleCellClick(row, col)"
+        v-for="(letter, letterIndex) in columns"
+        :key="letter"
+        :class="getCellClass(rowIndex, letterIndex)"
+        @click="handleCellClick(row, letter)"
       ></div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
+const columns = ["A", "B", "C", "D", "E", "F", "G", "H"];
+const rows = [8, 7, 6, 5, 4, 3, 2, 1];
+
+const emit = defineEmits(["cell-click"]);
 
 const selectedCell = ref(null);
 
@@ -27,7 +31,8 @@ const getCellClass = (row, col) => {
 };
 
 const handleCellClick = (row, col) => {
-  selectedCell.value = `${row}${col}`;
+  selectedCell.value = `${col}${row}`;
+  emit("cell-click", selectedCell.value);
 };
 </script>
 
