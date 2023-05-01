@@ -4,7 +4,7 @@
       <div
         v-for="(letter, letterIndex) in columns"
         :key="letter"
-        :class="getCellClass(rowIndex, letterIndex)"
+        :class="getCellClass(rowIndex, letterIndex, row, letter)"
         @click="handleCellClick(row, letter)"
       ></div>
     </div>
@@ -20,13 +20,13 @@ const emit = defineEmits(["cell-click"]);
 
 const selectedCell = ref(null);
 
-const getCellClass = (row, col) => {
-  const isBlack = (row + col) % 2 === 0;
+const getCellClass = (rowIndex, letterIndex, row, letter) => {
+  const isBlack = (rowIndex + letterIndex) % 2 === 0;
   return {
     cell: true,
     black: isBlack,
     white: !isBlack,
-    selected: selectedCell.value === `${row}${col}`,
+    selected: selectedCell.value === `${letter}${row}`,
   };
 };
 
