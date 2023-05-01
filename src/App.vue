@@ -19,7 +19,6 @@ const selectedCells = ref([]);
 
 const addSelectedCell = (cell) => {
   selectedCells.value = [...selectedCells.value, cell];
-  console.log(selectedCells.value);
 };
 </script>
 

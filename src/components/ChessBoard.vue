@@ -31,10 +31,13 @@ const getCellClass = (rowIndex, letterIndex, row, letter) => {
 };
 
 const handleCellClick = (row, col) => {
-  selectedCell.value = `${col}${row}`;
+  const selection = `${col}${row}`;
+  if (selectedCell.value === selection) {
+    return;
+  }
+  selectedCell.value = selection;
   emit("cell-click", selectedCell.value);
 };
-
 </script>
 
 <style scoped>

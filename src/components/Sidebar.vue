@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <h2>Selected Squares</h2>
-    <ul>
+    <ul class="cells-grid">
       <li v-for="(cell, index) in selectedCells" :key="cell">
         {{ index + 1 }}: {{ cell }}
       </li>
@@ -23,14 +23,17 @@ const props = defineProps({
 <style scoped>
 .sidebar {
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-ul {
+.cells-grid {
   list-style: none;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem 1rem;
 }
 
-li {
-  margin-bottom: 8px;
-}
 </style>
